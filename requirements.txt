@@ -1,0 +1,29 @@
+# LangChain Core
+langchain
+langchain-core
+langchain-community
+
+# Anthropic Integration
+langchain-anthropic
+
+# Google Gemini (PaLM) Integration
+langchain-google-genai
+google-generativeai
+
+# Environment Variable Management
+python-dotenv
+
+# Machine Learning Utilities
+numpy
+scikit-learn
+
+torch
+sentence-transformers
+streamlit
+pydantic[email]
+
+youtube-transcript-api
+faiss-cpu
+tiktoken
+ipykernel
+streamlit
