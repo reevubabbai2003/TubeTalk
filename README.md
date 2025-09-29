@@ -1,44 +1,60 @@
-# TubeTalk: YouTube Video Q&A 🎥
+# TubeTalk
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
-[![Streamlit](https://img.shields.io/badge/Framework-Streamlit-red.svg)](https://streamlit.io)
-[![LLM](https://img.shields.io/badge/LLM-Google%20Gemini-purple.svg)](https://ai.google.dev/)
-
-TubeTalk is a web application that allows you to have a conversation with any YouTube video. Simply provide a video URL and ask a question, and the app will use a Retrieval-Augmented Generation (RAG) pipeline to analyze the video's transcript and provide a context-aware answer.
+TubeTalk is a lightweight Streamlit web app that lets you **have a conversation with any YouTube video**. Provide a YouTube URL and a question — TubeTalk fetches the transcript, retrieves the most relevant transcript chunks using FAISS, and uses Google's Gemini model to generate a context-aware answer constrained to the transcript.
 
 ---
 
 ## ✨ Features
 
--   **YouTube Transcript Extraction:** Automatically fetches the English transcript of any YouTube video.
--   **Modern Web Interface:** A clean and user-friendly dashboard built with Streamlit.
--   **RAG-Powered Q&A:** Leverages the power of Google Gemini and FAISS vector search to find the most relevant information within the video to answer your questions.
--   **Context-Aware Answers:** The model is instructed to answer **only** from the provided transcript, preventing hallucinations and ensuring factual responses based on the video's content.
+* **Automatic YouTube transcript extraction** (English transcripts)
+* **RAG-powered Q&A**: LangChain text splitting + FAISS vector store for fast retrieval
+* **Gemini (Google) generation**: Model answers using retrieved transcript context
+* **Streamlit UI**: Minimal, modern dashboard for quick interaction
+* **Safe-by-design**: Model is instructed to answer only from the transcript to reduce hallucinations
 
 ---
 
-## ⚙️ Setup and Installation
 
-Follow these steps to get the project running on your local machine.
+## ✅ Prerequisites
 
-### 1. Prerequisites
+* Python 3.9+
+* `pip` (or `pip3`) or `conda` for managing packages
+* A Google API key with access to Gemini models (obtain from Google AI Studio / Google Cloud Console)
 
--   Python 3.9 or higher
--   `pip` package manager
+---
 
-### 2. Clone the Repository
+## 🚀 Quick Start
 
 ```bash
-git clone [https://github.com/your-username/TubeTalk.git](https://github.com/reevubabbai2003/TubeTalk.git)
+# 1. Clone
+git clone https://github.com/your-username/TubeTalk.git
 cd TubeTalk
 
-### 3. Create a Virtual Environment
+# 2. Create & activate virtual environment
+# macOS / Linux
+python3 -m venv venv
+source venv/bin/activate
 
-### 4. install Dependencies
+# Windows (PowerShell)
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# 3. Install dependencies
 pip install -r requirements.txt
 
-### 5. Set Up Environment Variables
-GOOGLE_API_KEY="YOUR_API_KEY_HERE"
+# 4. Create .env
+# In the project root create a file named .env with the following:
+# GOOGLE_API_KEY="YOUR_API_KEY_HERE"
 
-### Usage
+# 5. Run
 streamlit run app.py
+
+## ⚙️ Environment variables
+
+Create a `.env` file in the project root with the following key(s):
+
+```env
+GOOGLE_API_KEY="YOUR_API_KEY_HERE"
+```
+
+
